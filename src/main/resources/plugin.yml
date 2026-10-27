@@ -1,0 +1,21 @@
+name: BeeCreeper
+version: '${version}'
+main: ru.beecreeper.BeeCreeperPlugin
+api-version: '26.2'
+description: Крипер верхом на пчеле летит к игроку и взрывается с контролем разрушения блоков
+authors: [you]
+
+commands:
+  beecreeper:
+    description: Управление криперами на пчёлах
+    usage: /<command> <spawn|clear|reload>
+    aliases: [bc, beecreep]
+    permission: beecreeper.use
+
+permissions:
+  beecreeper.use:
+    description: Доступ к команде /beecreeper (spawn, clear)
+    default: op
+  beecreeper.reload:
+    description: Перезагрузка конфига
+    default: op

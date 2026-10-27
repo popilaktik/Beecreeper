@@ -1,0 +1,37 @@
+# ===== BeeCreeper =====
+
+creature:
+  bee-health: 8.0            # здоровье пчелы (если её сбить, крипер упадёт)
+  flying-speed: 0.35         # атрибут flying_speed пчелы (ваниль ~0.1)
+  speed-multiplier: 1.6      # множитель скорости при движении к игроку
+  creeper-powered: false     # заряженный крипер (молния-визуал)
+  creeper-invulnerable: true # крипер неуязвим, бить нужно пчелу
+  glowing: false             # подсветка (видно сквозь стены)
+  creeper-dies-with-bee: true # если пчелу убили - крипер исчезает
+  explode-on-bee-death: false # если пчелу убили - крипер взрывается на месте
+
+behavior:
+  trigger-distance: 2.0      # на каком расстоянии до игрока происходит взрыв
+  lifetime-seconds: 30       # максимальное время жизни
+  on-timeout: REMOVE         # REMOVE (просто исчезнуть) или EXPLODE
+  spawn-distance: 16.0       # на каком расстоянии от игрока появляется
+  spawn-height: 4.0          # на сколько блоков выше игрока появляется
+  max-per-command: 20        # максимум за один вызов команды
+
+explosion:
+  power: 3.0                 # сила взрыва (обычный крипер = 3, заряженный = 6)
+  set-fire: false            # поджигать блоки
+  blocks:
+    # NONE      - блоки не ломаются вообще (урон по игрокам остаётся)
+    # ALL       - ломаются все блоки, которые обычно ломает взрыв
+    # WHITELIST - ломаются ТОЛЬКО блоки из списка materials
+    # BLACKLIST - ломаются все, КРОМЕ блоков из списка materials
+    mode: NONE
+    materials:
+      - DIRT
+      - GRASS_BLOCK
+      - STONE
+      - COBBLESTONE
+    max-blocks: 0            # максимум сломанных блоков (0 = без лимита, ломаются ближайшие к центру)
+    protect-containers: true # сундуки, бочки, печки, воронки и т.п. никогда не ломаются
+    drop-chance: 1.0         # шанс выпадения предметов из блоков (0.0 - 1.0)
